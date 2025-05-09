@@ -633,3 +633,33 @@ footer {
   /* optionally add margin-top/bottom */
   margin: 1rem auto;
 }
+/* ---- Responsive Account Forms ---- */
+.account-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;              /* space between the two forms */
+  margin: 0 auto;
+  max-width: 800px;       /* constrain overall width */
+  padding: 0 1rem;        /* ← add horizontal padding */
+  box-sizing: border-box; /* include that padding in the width */
+}
+
+.login-form,
+.register-form {
+  flex: 1 1 300px;        /* grow, shrink, base width ~300px */
+  box-sizing: border-box; /* include padding/border in their width */
+}
+
+/* make inputs fill their form column */
+.account-wrapper .form-control {
+  width: 100%;
+  margin-top: 0.25rem;
+}
+
+/* at very small widths, stack vertically and increase padding */
+@media (max-width: 600px) {
+  .account-wrapper {
+    flex-direction: column;
+    padding: 0 1.5rem;    /* a little extra room on tiny screens */
+  }
+}
