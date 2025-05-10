@@ -102,7 +102,7 @@
       <div class="category-grid">
         <!-- RONAS -->
         <a href="ronas.html"
-           class="category-card flex flex-col justify-end"
+        class="category-card from-top-left"
            style="
              background-image: url('images/RONAS\ Logo.png');
              background-size: cover;
@@ -126,7 +126,7 @@
 
         <!-- MERIKIT -->
         <a href="merikit.html"
-           class="category-card flex flex-col justify-end"
+        class="category-card from-top-right"
            style="
              background-image: url('images/MERIKIT\ Logo.png');
              background-size: cover;
@@ -150,8 +150,8 @@
 
         <!-- OR’JADE -->
         <a href="orjade.html"
-           class="category-card flex flex-col justify-end"
-           style="
+        class="category-card from-bottom-left"
+         style="
              background-image: url('images/OR\'JADE\ Logo.png');
              background-size: cover;
              background-position: center;
@@ -174,8 +174,8 @@
 
         <!-- B’ETHIQUE -->
         <a href="bethique.html"
-           class="category-card flex flex-col justify-end"
-           style="
+        class="category-card from-bottom-right"
+          style="
              background-image: url('images/B\'ethique\ Logo.png');
              background-size: cover;
              background-position: center;
@@ -276,6 +276,23 @@
     });
   });
 </script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const cards = document.querySelectorAll('.category-card');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+        } else {
+          entry.target.classList.remove('in-view');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    cards.forEach(card => observer.observe(card));
+  });
+</script>
+
 </body>
 </html>
 </body>
