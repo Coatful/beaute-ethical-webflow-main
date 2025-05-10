@@ -663,18 +663,18 @@ footer {
     padding: 0 1.5rem;    /* a little extra room on tiny screens */
   }
 }
-/* initial state: off-screen + invisible */
-.category-card {
+/* only on the homepage do we hide/off-screen the cards */
+.page-home .category-card {
   opacity: 0;
   transition: transform 0.6s ease-out, opacity 0.6s ease-out;
 }
-.category-card.from-top-left    { transform: translate(-60px, -60px); }
-.category-card.from-top-right   { transform: translate( 60px, -60px); }
-.category-card.from-bottom-left { transform: translate(-60px,  60px); }
-.category-card.from-bottom-right{ transform: translate( 60px,  60px); }
+.page-home .category-card.from-top-left    { transform: translate(-60px, -60px); }
+.page-home .category-card.from-top-right   { transform: translate( 60px, -60px); }
+.page-home .category-card.from-bottom-left { transform: translate(-60px,  60px); }
+.page-home .category-card.from-bottom-right{ transform: translate( 60px,  60px); }
 
-/* visible state: in place + fade in */
-.category-card.in-view {
+/* visible state: in place + fade in (homepage only) */
+.page-home .category-card.in-view {
   transform: translate(0,0) !important;
   opacity: 1;
 }
